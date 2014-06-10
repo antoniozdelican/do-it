@@ -12,5 +12,6 @@ DoIt::Application.routes.draw do
     end
   end
 
-
+  resources :categories
+  resources :items
 end
