@@ -27,3 +27,6 @@ end
 
 # Authentication
 gem 'devise'
+
+# Enumerations from Infinum
+gem 'enumerations'
