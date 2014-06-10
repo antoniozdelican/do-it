@@ -1,1 +1,32 @@
-something
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <h2>Start doing things now!</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <div class="panel-group" id="accordion">
+      <% @categories.each_with_index do |category, index| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a href="#collapse<%= index %>" data-toggle="collapse" data-parent="#accordion">
+                <%= category.name %>
+              </a>
+            </h4>
+          </div>
+          <div id="collapse<%= index %>" class="panel-collapse collapse">
+            <div class="panel-body">
+              <%= category.description %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <%= link_to "New category", new_category_path, class: "btn btn-default" %>
+  </div>
+</div>
