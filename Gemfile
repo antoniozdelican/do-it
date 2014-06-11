@@ -25,6 +25,16 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :test, :development do
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'capybara'
+end
+
 # Authentication
 gem 'devise'
 

@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
   has_many :categories, dependent: :destroy
 
+  validates :username, presence: true, uniqueness: true
+  
   def email_required?
   	false
   end
