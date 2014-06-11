@@ -22,4 +22,17 @@ module ApplicationHelper
       datetime.strftime("%d %b %Y")
     end
   end
+
+  def item_status_color(status)
+    case status
+    when "Pending"
+      "active"
+    when "Completed"
+      "success"
+    when "Canceled"
+      "danger"
+    else
+      ""
+    end
+  end
 end
