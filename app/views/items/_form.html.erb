@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <%= form_for [category, item] do |f| %>
+      <%= render partial: "shared/error_messages", locals: { target: item} %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :status_id, "Status" %>
+        <% if item_new %>
+          <%= f.collection_select :status_id, Status.all, :id, :name, {}, { disabled: true, class: "form-control" } %>
+          <%= f.hidden_field :status_id %>
+        <% else %>
+          <%= f.collection_select :status_id, Status.all, :id, :name, {}, { class: "form-control" } %>
+        <% end %>
+      </div>
+      <%= f.submit "Save this item", class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>
