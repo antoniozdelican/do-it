@@ -19,7 +19,9 @@
           <%= f.collection_select :status_id, Status.all, :id, :name, {}, { class: "form-control" } %>
         <% end %>
       </div>
-      <%= f.submit "Save this item", class: "btn btn-default" %>
+      <div class="actions">
+        <%= f.submit "Save this item", class: "btn btn-default" %>
+      </div>
     <% end %>
   </div>
 </div>
