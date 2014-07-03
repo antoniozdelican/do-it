@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   it "is invalid without a username" do
-    expect(FactoryGirl.build(:user, username: nil)).to be_valid
+    expect(FactoryGirl.build(:user, username: nil)).not_to be_valid
   end
 
   it "is invalid without a password" do

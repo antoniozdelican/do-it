@@ -21,8 +21,8 @@ describe HomeController do
     end
 
     it "loads all of the categories into @categories" do
-      category1 = FactoryGirl.create(:category, name: "Category1")
-      category2 = FactoryGirl.create(:category, name: "Category2")
+      category1 = FactoryGirl.create(:category, name: "Category1", user_id: user.id)
+      category2 = FactoryGirl.create(:category, name: "Category2", user_id: user.id)
       get :index
       expect(assigns(:categories)).to match_array([category1, category2])    
     end
