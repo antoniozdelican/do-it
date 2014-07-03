@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+    #@categories = Category.all
+    @categories = current_user.categories
   end
 
   def show
@@ -8,11 +9,14 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @category = Category.new
+    #@category = Category.new
+    @category = current_user.categories.build
+    #@category = Category.new(user_id: current_user.id)
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = current_user.categories.build(category_params)
+    #@category = Category.new(category_params)
     if @category.save
       flash[:success] = "You have a new category!"
       redirect_to root_path
