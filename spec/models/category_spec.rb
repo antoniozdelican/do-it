@@ -1,13 +1,17 @@
 require 'spec_helper'
 
 describe Category do
+  it "has is invalid without a unique name for one user" do
+    FactoryGirl.create(:category, name: "Zabava", user_id: 1)
+    expect(FactoryGirl.build(:category, name: "Zabava", user_id: 1)).not_to be_valid
+  end
   
-  # it "has a user" do
-  #   user = FactoryGirl.create(:user)
-  #   category = FactoryGirl.create(:category, user: user)
-  #   expect(category.user).to be_valid
-  #   expect(category.user).to eq(user)
-  # end
+  it "has a user" do
+    user = FactoryGirl.create(:user)
+    category = FactoryGirl.create(:category, user: user)
+    expect(category.user).to be_valid
+    expect(category.user).to eq(user)
+  end
 
   # it "has items" do
   #   category = FactoryGirl.create(:category)

@@ -1,7 +1,16 @@
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
-    <h2>Start doing things now!</h2>
+    <% if current_user.username == "Tomislav" %>
+      <h2> Bravo Toca! </h2>
+    <% else %>
+      <h2>Start doing things now!</h2>
+    <% end %>
   </div>
+</div>
+<div class="row congrats text-center">
+  <% if current_user.username == "Tomislav" %>
+    <%= image_tag "http://www.quickmeme.com/img/93/93e6b7f1fb3dcfcf761c5f8fd78c24573b75a664a3bfb9de61f53d61784b8245.jpg" %>
+  <% end %>
 </div>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
